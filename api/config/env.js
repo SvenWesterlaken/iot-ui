@@ -15,10 +15,10 @@ const env = {
 }
 
 env.sql = {
-  host: process.env.SQL_HOST || 'localhost',
-  database: process.env.SQL_DB || 'data',
-  user: process.env.SQL_USER || 'admin',
-  pass: process.env.SQL_PASS || 'admin'
+  host: process.env.SQL_HOST || 'applecarkey.database.windows.net',
+  database: process.env.SQL_DB || 'iot_data',
+  user: process.env.SQL_USER || 'applecarkey',
+  pass: process.env.SQL_PASS || 'ed4ZmrZJ22k4'
 }
 
 module.exports = env;
