@@ -1,8 +1,9 @@
 <template lang="pug">
   #dashboard
-    h1 Test
-    .chart-card
-      chart(:newValue="sensor1LastValue")
+    h1 IOT Sensor Dashboard
+    .charts
+      chart(:newValue="sensor1LastValue", title="Sensor 1")
+      chart(:newValue="sensor2LastValue", title="Sensor 2")
 </template>
 
 <script>
@@ -16,7 +17,7 @@ export default {
   data() {
     return {
       sensor1LastValue: {},
-      sensor2: [],
+      sensor2LastValue: {},
     };
   },
   sockets: {
@@ -25,8 +26,7 @@ export default {
     },
     sensors(data) {
       this.sensor1LastValue = { x: data.date, y: data.sensor1 };
-
-      // this.sensor2.push(data.sensor2);
+      this.sensor2LastValue = { x: data.date, y: data.sensor2 };
     },
   },
 };
@@ -41,6 +41,12 @@ body
   font-family: 'Avenir', Helvetica, Arial, sans-serif
   text-align: center
   color: #2c3e50
-  height: 100vh
-  width: 100vw
+  box-sizing: padding-box
+  padding: 16px
+
+.charts
+  margin-top: 16px
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
 </style>
