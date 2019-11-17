@@ -1,6 +1,5 @@
 const db = require('../db/sql-repo');
 
-
 module.exports = {
   // Methods take req(uest), res(ponse) & the next function if you want to use this as middleware
   notFound(req, res, next) {
