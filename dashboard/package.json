@@ -11,6 +11,7 @@
     "apexcharts": "^3.10.1",
     "core-js": "^3.3.2",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.5.1",
     "vue-socket.io": "^3.0.7"

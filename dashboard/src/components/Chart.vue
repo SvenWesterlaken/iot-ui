@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import moment from 'moment';
 
 export default {
   props: ['newValue', 'title'],
@@ -42,9 +43,11 @@ export default {
         },
         xaxis: {
           type: 'datetime',
-          range: 10000,
+          range: 12000,
           labels: {
-            format: 'HH:mm:ss',
+            formatter(value, timestamp) {
+              return moment(timestamp).format('h:mm:ss');
+            },
           },
         },
         yaxis: {
@@ -75,7 +78,7 @@ export default {
 <style lang="sass">
   .chart-card
     width: 80%
-    max-width: 500px
+    max-width: 800px
     padding: 32px 32px 0
     border: 1px solid #ececec
     margin: 16px
