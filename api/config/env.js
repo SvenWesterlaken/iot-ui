@@ -1,11 +1,9 @@
 const dotenv = require('dotenv');
 
-if (process.env.NODE_ENV === 'test') {
-  result = dotenv.config();
+result = dotenv.config();
 
-  if (result.error) {
-    throw result.error;
-  }
+if (result.error) {
+  console.log(result.error);
 }
 
 const env = {
@@ -15,10 +13,10 @@ const env = {
 }
 
 env.sql = {
-  host: process.env.SQL_HOST || 'applecarkey.database.windows.net',
+  host: process.env.SQL_HOST || 'localhost',
   database: process.env.SQL_DB || 'iot_data',
-  user: process.env.SQL_USER || 'applecarkey',
-  pass: process.env.SQL_PASS || 'ed4ZmrZJ22k4'
+  user: process.env.SQL_USER || 'admin',
+  pass: process.env.SQL_PASS || 'admin'
 }
 
 module.exports = env;
