@@ -11,9 +11,9 @@ const basic = require('./controllers/basic');
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
-
-app.use(middleware.protectionHeaders);
-app.use(middleware.preflightHandler);
+// 
+// app.use(middleware.protectionHeaders);
+// app.use(middleware.preflightHandler);
 
 app.set('SECRET_KEY', config.secretkey);
 app.use(parser.json());
