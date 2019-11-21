@@ -9,7 +9,7 @@ Vue.config.productionTip = false;
 
 Vue.use(new VueSocketIO({
   debug: true,
-  connection: 'http://localhost',
+  connection: 'http://138.197.1.100',
 }));
 
 Vue.use(VueApexCharts);

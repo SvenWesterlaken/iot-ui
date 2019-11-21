@@ -20,6 +20,7 @@ app.use(parser.json());
 app.use(parser.urlencoded({extended:true}));
 app.use(passport.initialize());
 
+app.use(express.static('dashboard'));
 app.use('/api/v1', api_v1);
 
 app.use(middleware.errorHandler);
@@ -30,23 +31,9 @@ server.listen(config.port, () => {
   console.log(`If run locally: http://localhost:${config.port}`)
 });
 
-const moment = require('moment');
-
-const getRandomValue = () => {
-    return {
-      date: moment.now(),
-      sensor1: Math.random(),
-      sensor2: Math.random()
-    }
-}
-
 io.on('connection', (socket) => {
-
   console.log('Client connected!');
-  setInterval(() => {
-    socket.emit("sensors", getRandomValue());
-  }, 1000)
-
-})
+  app.set('socket', socket);
+});
 
 module.exports = app;

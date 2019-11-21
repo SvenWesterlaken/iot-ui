@@ -12,6 +12,8 @@ module.exports = {
   },
 
   addData(req, res){
+    socket = req.app.get('socket');
+    socket.emit("sensors", req.body);
     db.addData(req, res);
   }
 }

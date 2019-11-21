@@ -21,12 +21,9 @@ export default {
     };
   },
   sockets: {
-    connect() {
-      console.log('Socket Connected');
-    },
     sensors(data) {
-      this.sensor1LastValue = { x: data.date, y: data.sensor1 };
-      this.sensor2LastValue = { x: data.date, y: data.sensor2 };
+      this.sensor1LastValue = { x: data.time, y: data.sensor1 };
+      this.sensor2LastValue = { x: data.time, y: data.sensor2 };
     },
   },
 };

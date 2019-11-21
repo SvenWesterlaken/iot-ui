@@ -51,7 +51,6 @@ export default {
           },
         },
         yaxis: {
-          max: 1,
           min: 0,
           decimalsInFloat: 1,
         },
