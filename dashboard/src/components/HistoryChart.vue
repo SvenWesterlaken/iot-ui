@@ -2,20 +2,16 @@
   .chart-card
     h4 {{title}}
     apexchart(ref="chart", height=300,
-              type="line", :options="chartOptions", :series="initValues")
+              type="line", :options="chartOptions", :series="series")
 </template>
 
 <script>
-import moment from 'moment';
+// import moment from 'moment';
 
 export default {
-  props: ['newValue', 'title'],
+  props: ['series', 'title'],
   data() {
     return {
-      values: [],
-      initValues: [{
-        data: [],
-      }],
       chartOptions: {
         chart: {
           animations: {
@@ -25,11 +21,13 @@ export default {
               speed: 1000,
             },
           },
-          toolbar: {
-            show: false,
-          },
           zoom: {
-            enabled: false,
+            type: 'x',
+            enabled: true,
+            autoScaleYaxis: true,
+          },
+          toolbar: {
+            autoSelected: 'zoom',
           },
         },
         dataLabels: {
@@ -40,15 +38,10 @@ export default {
         },
         markers: {
           size: 0,
+          style: 'full',
         },
         xaxis: {
           type: 'datetime',
-          range: 12000,
-          labels: {
-            formatter(value, timestamp) {
-              return moment(timestamp).format('h:mm:ss');
-            },
-          },
         },
         yaxis: {
           min: 0,
