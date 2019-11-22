@@ -37,7 +37,6 @@ export default {
         },
         markers: {
           size: 0,
-          style: 'full',
         },
         xaxis: {
           type: 'datetime',

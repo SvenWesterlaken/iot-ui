@@ -10,7 +10,8 @@ import App from './App.vue';
 
 Vue.config.productionTip = false;
 
-const host = 'http://localhost';
+const host = 'http://138.197.1.100:8080';
+// const host = 'http://localhost';
 
 const instance = axios.create({
   baseURL: `${host}/api/v1`,

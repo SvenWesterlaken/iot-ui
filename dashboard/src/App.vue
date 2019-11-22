@@ -4,8 +4,9 @@
     .charts
       realtime-chart(:newValue="sensor1LastValue", title="Sensor 1")
       realtime-chart(:newValue="sensor2LastValue", title="Sensor 2")
-      history-chart(:series="historySeries", title="History Chart")
-      button.btn(@click="getHistory") Reload History Diagram
+      .history-holder
+        history-chart(:series="historySeries", title="History Chart")
+        button.btn(@click="getHistory") Reload History Diagram
 </template>
 
 <script>
@@ -47,7 +48,7 @@ export default {
         });
 
         this.historySeries = [sensor1, sensor2];
-      }).catch((err) => { console.log(err); });
+      });
     },
   },
 };
@@ -70,8 +71,9 @@ body
   display: flex
   flex-wrap: wrap
   justify-content: center
+  align-items: center
 
-.chart-card
+.chart-card,
   width: 90%
   max-width: 800px
   padding: 32px 32px 0
@@ -83,6 +85,12 @@ body
 
   h4
     margin: 0
+
+.history-holder
+  width: 100%
+  display: flex
+  flex-direction: column
+  align-items: center
 
 .btn
   background: #008FFB
