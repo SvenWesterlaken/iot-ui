@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// import moment from 'moment';
 
 export default {
   props: ['series', 'title'],
@@ -66,17 +65,3 @@ export default {
   },
 };
 </script>
-
-<style lang="sass">
-  .chart-card
-    width: 80%
-    max-width: 800px
-    padding: 32px 32px 0
-    border: 1px solid #ececec
-    margin: 16px
-    box-shadow: 0 0px 12px 0 rgba(0,0,0,0.12)
-    border-radius: 16px
-
-    h4
-      margin: 0
-</style>

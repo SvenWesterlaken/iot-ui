@@ -5,6 +5,7 @@
       realtime-chart(:newValue="sensor1LastValue", title="Sensor 1")
       realtime-chart(:newValue="sensor2LastValue", title="Sensor 2")
       history-chart(:series="historySeries", title="History Chart")
+      button.btn(@click="getHistory") Reload History Diagram
 </template>
 
 <script>
@@ -32,7 +33,6 @@ export default {
     },
   },
   mounted() {
-    console.log(this.axios);
     this.getHistory();
   },
   methods: {
@@ -70,4 +70,38 @@ body
   display: flex
   flex-wrap: wrap
   justify-content: center
+
+.chart-card
+  width: 90%
+  max-width: 800px
+  padding: 32px 32px 0
+  border: 1px solid #ececec
+  margin: 16px
+  box-sizing: border-box
+  box-shadow: 0 0px 12px 0 rgba(0,0,0,0.12)
+  border-radius: 16px
+
+  h4
+    margin: 0
+
+.btn
+  background: #008FFB
+  color: white
+  padding: 12px 16px
+  font-size: 14px
+  font-weight: bold
+  text-transform: uppercase
+  max-width: 800px
+  box-sizing: border-box
+  border: none
+  border-radius: 8px
+  box-shadow: 0 0px 12px 0 rgba(0,0,0,0.12)
+  cursor: pointer
+  transition: all 250ms ease-in-out
+  outline: none
+
+  &:hover, &:active
+    box-shadow: 0 0px 14px 0 rgba(0,0,0,0.4)
+    background: darken(#008FFB, 10)
+
 </style>
